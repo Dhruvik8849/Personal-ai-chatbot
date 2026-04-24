@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+
+  --bg-1: #020617;
+  --bg-2: #0f172a;
+
+  --cyan: #22d3ee;
+  --blue: #3b82f6;
+  --violet: #8b5cf6;
+  --pink: #ec4899;
+
+  --text: #e2e8f0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34,211,238,.20), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(139,92,246,.18), transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(236,72,153,.14), transparent 30%),
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #0f172a 35%,
+      #111827 65%,
+      #020617 100%
+    );
+
+  background-attachment: fixed;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  animation: gradientShift 18s ease infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+::selection {
+  background: rgba(139,92,246,.5);
+  color: white;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30,41,59,.35);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--cyan),
+    var(--blue),
+    var(--violet)
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(1.15);
+}
+
+
+.glass {
+  background: rgba(15,23,42,.55);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+
+.glow {
+  box-shadow:
+    0 0 12px rgba(34,211,238,.35),
+    0 0 32px rgba(139,92,246,.25);
+}
+
+
+/* ---------- CHAT LOADING DOTS (SCOPED) ---------- */
+
+.typing {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  width: fit-content;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  display: inline-block;
+  animation: typingBlink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingBlink {
+  0% { opacity: 0.2; transform: translateY(0px); }
+  20% { opacity: 1; transform: translateY(-3px); }
+  100% { opacity: 0.2; transform: translateY(0px); }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+}
